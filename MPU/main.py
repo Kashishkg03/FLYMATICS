@@ -2,7 +2,7 @@ from machine import Pin, I2C
 import utime
 from mpu6050 import init_mpu6050, get_mpu6050_data
  
-i2c = I2C(1, scl=Pin(5), sda=Pin(4), freq=400000)
+i2c = I2C(1, scl=Pin(3), sda=Pin(2), freq=400000)
 init_mpu6050(i2c)
  
 while True:
