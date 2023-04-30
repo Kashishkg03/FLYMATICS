@@ -1,0 +1,17 @@
+import machine
+import time
+
+uart = machine.UART(0, 9600)  # create UART object for SIM900A
+uart.init(9600, bits=8, parity=None, stop=1)  # initialize UART with baudrate and other settings
+
+def send_sms(number,message):
+    uart.write('AT+CMGF=1\r\n')  # set SMS text mode
+    time.sleep(1)
+    uart.write('AT+CMGS="{}"\r\n'.format(number))  # set recipient number
+    time.sleep(1)
+    uart.write('{}\r\n'.format(message))  # set SMS message
+    time.sleep(1)
+    uart.write(bytes([26]))  # send Ctrl+Z character to send SMS
+    time.sleep(1)
+    
+send_sms("9741672070","hi")
