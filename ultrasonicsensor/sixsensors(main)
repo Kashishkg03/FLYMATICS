@@ -1,0 +1,30 @@
+from hcsr04 import HCSR04
+from time import sleep
+
+sensor1 = HCSR04(trigger_pin=0, echo_pin=1, echo_timeout_us=10000)
+sensor2 = HCSR04(trigger_pin=2, echo_pin=3, echo_timeout_us=10000)
+sensor3 = HCSR04(trigger_pin=4, echo_pin=5, echo_timeout_us=10000)
+sensor5 = HCSR04(trigger_pin=10, echo_pin=11, echo_timeout_us=10000)
+sensor4 = HCSR04(trigger_pin=6, echo_pin=7, echo_timeout_us=10000)
+sensor6 = HCSR04(trigger_pin=14, echo_pin=15, echo_timeout_us=10000)
+
+while True:
+    distance = sensor1.distance_cm()
+    print('Distance:1', distance, 'cm')
+    sleep(1)
+    distance = sensor2.distance_cm()
+    print('Distance:2', distance, 'cm')
+    sleep(1)
+    distance = sensor3.distance_cm()
+    print('Distance:3', distance, 'cm')
+    sleep(1)
+    distance = sensor4.distance_cm()
+    print('Distance:4', distance, 'cm')
+    sleep(1)
+    distance = sensor5.distance_cm()
+    print('Distance:5', distance, 'cm')
+    sleep(1)
+    distance = sensor6.distance_cm()
+    print('Distance:6', distance, 'cm')
+    sleep(1)
+    print("------------------------------------------")
