@@ -21,7 +21,7 @@ def complementary_filter(pitch, roll, gyro_data, dt, alpha=0.98):
  
     return pitch, roll
  
-i2c = I2C(1, scl=Pin(3), sda=Pin(2), freq=400000)
+i2c = I2C(0, scl=Pin(1), sda=Pin(0), freq=400000)
 init_mpu6050(i2c)
  
 pitch = 0
@@ -43,4 +43,5 @@ while True:
     print("Pitch: {:.2f}, Roll: {:.2f} degrees".format(pitch, roll))
     print("Acceleration: X: {:.2f}, Y: {:.2f}, Z: {:.2f} g".format(data['accel']['x'], data['accel']['y'], data['accel']['z']))
     print("Gyroscope: X: {:.2f}, Y: {:.2f}, Z: {:.2f} °/s".format(data['gyro']['x'], data['gyro']['y'], data['gyro']['z']))
+    print("--------------------------------------------------------------------------------------------")
     utime.sleep(5)
